@@ -1,0 +1,58 @@
+html {
+    overflow: auto;
+}
+a {
+    text-decoration:none;
+    color: #158784;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+ul {
+    list-style:none;
+    padding: 0;
+}
+.centerText {
+    text-align: center;
+}
+.centerContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hide {
+    display: none !important;
+}
+input:focus {
+    outline: none !important;
+}
+a:focus {
+    outline: none !important;
+}
+button:focus {
+    outline: none !important;
+}
+.win-flyout, .win-settingsflyout {
+    border-color: #158784 !important;
+}
+#maincontent {
+    width: 90%;
+    min-height: 400px;
+    margin: 20px auto;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+#credentials {
+    margin-top: 40px;
+}
+.logo {
+    max-width: 40px;
+}
+img {
+    vertical-align: middle; 
+}
+header {
+    font-size: 2rem;
+    padding: 15px;
+}
