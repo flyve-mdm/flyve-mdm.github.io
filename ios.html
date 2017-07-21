@@ -1,0 +1,15 @@
+---
+layout: page
+title: ios
+permalink: /ios/
+---
+
+{% for post in site.categories.ios %}
+    <li>
+    <span class="post-meta">{{ post.categories | join: ", " }}</span>
+
+    <h2>
+        <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+    </h2>
+    </li>
+{% endfor %}
