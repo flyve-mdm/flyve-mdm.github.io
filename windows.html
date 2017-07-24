@@ -5,11 +5,19 @@ permalink: /windows/
 ---
 
 {% for post in site.categories.windows %}
-    <li>
-    <span class="post-meta">{{ post.categories | join: ", " }}</span>
-
-    <h2>
-        <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-    </h2>
-    </li>
+    <div class="treeList">
+        {% for products in post.categories[1] %}
+            <h3>{{products}}</h3>
+            {% for categorie in post.categories[2] %}
+                <h4>
+                    {{ categorie }}
+                </h4>
+                {% if post.categories contains categorie %}
+                    <li>
+                        <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </div>
 {% endfor %}
