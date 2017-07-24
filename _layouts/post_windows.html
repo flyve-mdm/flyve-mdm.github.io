@@ -3,7 +3,7 @@ layout: default_windows
 ---
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <header class="post-header">
+  <div class="post-div">
     <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
     <p class="post-meta">
       <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
@@ -22,7 +22,7 @@ layout: default_windows
       {% endif %}
       <!-- End categorías -->
     </p>
-  </header>
+  </div>
 
   <div class="post-content" itemprop="articleBody">
     {{ content }}
