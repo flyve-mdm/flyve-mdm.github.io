@@ -3,8 +3,15 @@
 
 $color_accent: #0078d7;
 
+@font-face {
+  font-family: 'SegoeUI';
+  src: url('./fonts/SegoeUI.eot?#iefix') format('embedded-opentype'),  url('./fonts/SegoeUI.woff') format('woff'), url('./fonts/SegoeUI.ttf')  format('truetype'), url('./fonts/SegoeUI.svg#SegoeUI') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
-   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   font-family: 'SegoeUI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 header {
