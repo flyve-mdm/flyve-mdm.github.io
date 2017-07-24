@@ -1,3 +1,19 @@
 ---
 ---
 
+$color_accent: #0078d7;
+
+body {
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    background-color: $color_accent;
+    .site-title {
+        color: white;
+    }
+    .site-nav {
+        border-radius: 0px;
+    }
+}
+
