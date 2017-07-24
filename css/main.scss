@@ -1,3 +1,15 @@
 ---
 ---
 
+.treeList {
+    $spacing: 15px;
+    h3 {
+        margin-left: $spacing;
+    }
+    h4 {
+        margin-left: $spacing * 2;
+    }
+    li {
+        margin-left: $spacing * 3;
+    }
+}
