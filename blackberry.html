@@ -4,20 +4,50 @@ title: blackberry
 permalink: /blackberry/
 ---
 
-{% for post in site.categories.blackberry %}
-    <div class="treeList">
-        {% for products in post.categories[1] %}
-            <h3>{{products}}</h3>
-            {% for categorie in post.categories[2] %}
-                <h4>
-                    {{ categorie }}
-                </h4>
-                {% if post.categories contains categorie %}
-                    <li>
-                        <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-                    </li>
-                {% endif %}
-            {% endfor %}
+<div class="treeList">
+
+    {% assign site_categories = site.tags | map: 'blackberry' %}
+
+    {% capture arrayAll %}
+        {% for post in site.categories.blackberry %}
+            {{ post.tags[0] }}
         {% endfor %}
-    </div>
-{% endfor %}
+    {% endcapture %}
+
+        {% assign allCategories = arrayAll | split: " " | uniq %}
+        
+        {% assign cont = 1 %}
+
+        {% for categorie in allCategories %}
+            {% assign modulo = cont | modulo: 2 %}
+        
+            {% if modulo == 0 %}
+                <h3>{{ categorie }}</h3>
+                {% else %}
+                    {% if categorie != 'blackberry' %}
+
+                        {% assign version = categorie | split: '#' %}
+
+                        <h4>{{ version[1] }}</h4>
+                        {% assign cont2 = cont | minus: 2 %}
+                        {% capture tag %}
+                          blackberry {{allCategories[cont2]}} {{ categorie }}
+                        {% endcapture %}
+                        
+                        {% assign tag = tag | rstrip | lstrip %}
+
+                        {% assign my_variable7 = site.tags[tag] %}
+
+                        {% for post in my_variable7 %}
+                            <li>
+                                <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+                            </li>
+                        {% endfor %}
+
+                    {% endif %}
+            {% endif %}
+            {% assign cont = cont | plus: 1 %}
+            
+        {% endfor %}
+
+</div>
