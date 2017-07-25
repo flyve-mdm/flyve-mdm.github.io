@@ -22,5 +22,11 @@ header {
     }
     .site-nav {
         border-radius: 3px;
+        .page-link {
+            color: white;
+            @media screen and (max-width: 600px) {
+                color: black;
+            }
+        }
     }
 }

@@ -24,4 +24,13 @@ header {
     .site-title {
         color: white;
     }
+    .site-nav {
+        border-radius: 0px;
+        .page-link {
+            color: white;
+            @media screen and (max-width: 600px) {
+                color: black;
+            }
+        }
+    }
 }
