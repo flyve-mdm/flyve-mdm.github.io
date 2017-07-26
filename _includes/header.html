@@ -3,11 +3,10 @@
   <div class="wrapper">
     {% assign default_paths = site.pages | map: "path" %}
     {% assign page_paths = site.header_pages | default: default_paths %}
-    {% capture design %}img/{{include.design | default: 'void'}}.png{% endcapture %}
-    <a class="site-title" href="{{ "/" | relative_url }}">
-      {{ site.title | escape }}
-      <img class="logo" src="{{ design | relative_url }}">
-    </a>
+    {% assign lang = page.url | split: '/' %}            
+    {% assign pageLang = lang[1] | default: 'en' %}
+    <a class="site-title" href="{{ pageLang | relative_url }}">{{ site.title | escape }}</a>
+  
     {% if page_paths %}
       <nav class="site-nav">
         <input type="checkbox" id="nav-trigger" class="nav-trigger" />
@@ -22,14 +21,24 @@
         </label>
 
         <div class="trigger">
-          {% for path in page_paths %}
-            {% assign my_page = site.pages | where: "path", path | first %}
-            {% if my_page.title %}
-            <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
-            {% endif %}
-          {% endfor %}
+            
+              {% for page in site[pageLang] %}
+                {% if page.tags[0] == pageLang %}
+                  <a class="page-link" href="{{ page.url | relative_url }}">{{ page.title | escape }}</a>
+                {% endif %}
+              {% endfor %}
         </div>
       </nav>
     {% endif %}
   </div>
 </header>
+<div>
+  <ul>
+    <li><a href="/en-US">en-US</a></li>
+    <li><a href="/en-GB">en-GB</a></li>
+    <li><a href="/fr-FR">fr-FR</a></li>
+    <li><a href="/es-ES">es-ES</a></li>
+    <li><a href="/pr-PR">pr-PR</a></li>
+  </ul>
+</div>
+  

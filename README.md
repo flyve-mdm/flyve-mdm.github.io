@@ -1,3 +1,0 @@
-# Flyve MDM
-
-Dev Site

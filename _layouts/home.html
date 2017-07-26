@@ -9,16 +9,14 @@ layout: default
   <h1 class="page-heading">Products</h1>
   
   <ul class="post-list">
+  {% assign lang = page.url | split: '/' %}
+  {% assign pageLang = lang[1] | default: 'en-US' %}
 
-    <h2><a href="/blackberry">Blackberry</a></h2>
-
-    <h2><a href="/windows">windows</a></h2>
-    
-    <h2><a href="/android">android</a></h2>
-
-    <h2><a href="/ios">ios</a></h2>
-
-    <h2><a href="/glpi">glpi</a></h2>
+    {% for page in site[pageLang] %}
+      {% if page.tags[0] == pageLang %}
+        <h2><a href={{ page.url }}>{{ page.title }}</a></h2>
+      {% endif %}
+    {% endfor %}
 
   </ul>
 
