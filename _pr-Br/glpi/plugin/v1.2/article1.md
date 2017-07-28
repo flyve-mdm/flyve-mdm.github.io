@@ -1,0 +1,13 @@
+---
+layout: post
+title: Article example 1
+design: glpi 
+date: 2016-11-28 10:44:50 -0500 -0500
+categories:
+    - glpi
+    - plugin
+    - v1.2
+tags:
+    - glpi plugin Plug#v1.2
+---
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum molestiae maxime, non perspiciatis repellendus! Alias praesentium laborum consectetur velit, et explicabo impedit excepturi tenetur modi necessitatibus! Delectus deleniti maxime vel.
