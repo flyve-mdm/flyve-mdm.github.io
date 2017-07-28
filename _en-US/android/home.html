@@ -1,0 +1,54 @@
+---
+layout: page
+title: android 
+design: android
+tags:
+    - en-US
+---
+
+<div class="treeList">
+
+    {% capture arrayAll %}
+        {% for page in site['en-US'] %}
+            {% if page.design == "android" %}
+                {{ page.tags[0] }}
+            {% endif %}
+        {% endfor %}
+    {% endcapture %}
+    
+    {% assign allCategories = arrayAll | split: " " | uniq %}
+
+    {% assign cont = 1 %}
+
+    {% for categorie in allCategories %}
+            {% assign modulo = cont | modulo: 2 %}
+            {% if modulo == 0 and categorie != 'en-US' %}
+                <h3>{{ categorie }}</h3>
+                {% else %}
+                    {% if categorie != 'android' %}
+
+                        {% assign version = categorie | split: '#' %}
+
+                        <h4>{{ version[1] }}</h4>
+                        {% assign cont2 = cont | minus: 2 %}
+                        {% capture tag %}
+                          android {{allCategories[cont2]}} {{ categorie }}
+                        {% endcapture %}
+                        
+                        {% assign tag = tag | rstrip | lstrip %}
+
+                        {% assign allArticles = site['en-US'] |  where:"tags",tag %}
+
+                        {% for article in allArticles %}
+                            <li>
+                                <a href="{{ article.url | relative_url }}">{{ article.title | escape }}</a>
+                            </li>
+                        {% endfor %}
+
+                    {% endif %}
+            {% endif %}
+            {% assign cont = cont | plus: 1 %}
+            
+        {% endfor %}
+
+</div>
