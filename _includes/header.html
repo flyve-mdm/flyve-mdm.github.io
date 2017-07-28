@@ -3,9 +3,12 @@
   <div class="wrapper">
     {% assign default_paths = site.pages | map: "path" %}
     {% assign page_paths = site.header_pages | default: default_paths %}
-    {% assign lang = page.url | split: '/' %}            
-    {% assign pageLang = lang[1] | default: 'en' %}
-    <a class="site-title" href="{{ pageLang | relative_url }}">{{ site.title | escape }}</a>
+    {% assign url = page.url | split: '/' %}            
+    {% assign pageLang = url[1] | default: 'en-US' %}
+    {% capture img %}img/{{include.design | default: 'none' }}_logo.png{% endcapture %}
+    <a class="site-title" href="{{ pageLang | relative_url }}">{{ site.title | escape }}
+      <img src="{{ img | relative_url }}" alt="">
+    </a>
   
     {% if page_paths %}
       <nav class="site-nav">
@@ -32,13 +35,18 @@
     {% endif %}
   </div>
 </header>
-<div>
+<div class="switchLanguage">
   <ul>
-    <li><a href="/en-US">en-US</a></li>
-    <li><a href="/en-GB">en-GB</a></li>
-    <li><a href="/fr-FR">fr-FR</a></li>
-    <li><a href="/es-ES">es-ES</a></li>
-    <li><a href="/pr-PR">pr-PR</a></li>
+    {% if page.url != '/' %}
+      {% assign url = page.url %}
+      {% else %}
+        {% assign url = pageLang %}
+    {% endif %}
+    <li><a href="{{ url | replace_first: pageLang, "en-US" }}">en-US</a></li>
+    <li><a href="{{ url | replace_first: pageLang, "en-GB" }}">en-GB</a></li>
+    <li><a href="{{ url | replace_first: pageLang, "fr-FR" }}">fr-FR</a></li>
+    <li><a href="{{ url | replace_first: pageLang, "es-ES" }}">es-ES</a></li>
+    <li><a href="{{ url | replace_first: pageLang, "pr-BR" }}">pr-BR</a></li>
   </ul>
 </div>
   
