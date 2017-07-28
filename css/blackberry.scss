@@ -1,0 +1,37 @@
+---
+---
+
+$color_accent: black;
+
+@font-face {
+  font-family: 'EngraversGothicBT-Regular';
+  src: url('./fonts/EngraversGothicBT-Regular.eot?#iefix') format('embedded-opentype'),  url('./fonts/EngraversGothicBT-Regular.woff') format('woff'), url('./fonts/EngraversGothicBT-Regular.ttf')  format('truetype'), url('./fonts/EngraversGothicBT-Regular.svg#EngraversGothicBT-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+   font-family: Arial, sans-serif;
+}
+
+.site-header {
+    font-family: 'EngraversGothicBT-Regular';
+    background-color: $color_accent;
+    .site-title {
+        color: white;
+    }
+    .site-nav {
+        border-radius: 0px;
+        .page-link {
+            color: white;
+            @media screen and (max-width: 600px) {
+                color: black;
+            }
+        }
+    }
+    
+}
+
+h1 {
+    font-family: 'EngraversGothicBT-Regular';
+}
