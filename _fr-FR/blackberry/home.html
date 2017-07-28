@@ -1,13 +1,18 @@
 ---
-layout: page_blackberry
-title: blackberry
+layout: page
+title: blackberry 
+design: blackberry
 tags:
     - fr-FR
 ---
 
+<div class="treeList">
+
     {% capture arrayAll %}
         {% for page in site['fr-FR'] %}
-            {{ page.tags[0] }}
+            {% if page.design == "blackberry" %}
+                {{ page.tags[0] }}
+            {% endif %}
         {% endfor %}
     {% endcapture %}
     
@@ -17,7 +22,6 @@ tags:
 
     {% for categorie in allCategories %}
             {% assign modulo = cont | modulo: 2 %}
-        
             {% if modulo == 0 and categorie != 'fr-FR' %}
                 <h3>{{ categorie }}</h3>
                 {% else %}
