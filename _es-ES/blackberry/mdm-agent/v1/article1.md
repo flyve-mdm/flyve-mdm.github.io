@@ -1,7 +1,9 @@
 ---
-layout: post_blackberry
+layout: post
 title: Article example 1
+design: blackberry 
 date: 2016-11-28 10:44:50 -0500 -0500
+categories:
     - blackberry
     - mdm-agent
     - v1
